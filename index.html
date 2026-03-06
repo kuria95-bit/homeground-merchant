@@ -461,6 +461,7 @@
             <button onclick="filterProps('all')">All</button>
             <button onclick="filterProps('apartment')">Apartments</button>
             <button onclick="filterProps('plot')">Plots</button>
+            <button onclick="filterProps('commercial')">Commercial</button>
         </div>
         <div id="list" class="property-grid"></div>
         <div class="load-more">
@@ -531,14 +532,22 @@
 
     <script>
         const properties = [
-          { 
-    title: "Kitengela  Plot", 
-    location: "Kitengela", 
-    price: "KES 12M", 
-    type: "plot", 
-    image: "https://i.ibb.co/sdHPBsVT/d02d7d53-152b-4182-b0ce-a3836f4e3c93.jpg",
-  details: "• 50*100 plot\n• Kitengela town behind National Bank\n• Mabati houses income 100K\n• Suitable for high-rise apartments\n• Selling @12 Million"
-},
+            { 
+                title: "Commercial Building - Thika Road", 
+                location: "Rosters, Thika Road", 
+                price: "KES 380M", 
+                type: "commercial", 
+                image: "https://i.ibb.co/0jmqstSt/b2ccfd04-d446-4507-8ea9-4acb58160060.jpg",
+                details: "• Commercial building touching Thika Road\n• Monthly income: KES 3M\n• Asking price: KES 380 Million\n• 2 high-speed lifts\n• Backup generator\n• Basement parking\n• Rooftop access\n• Prime location: Rosters Thika"
+            },
+            { 
+                title: "Kitengela Plot", 
+                location: "Kitengela", 
+                price: "KES 12M", 
+                type: "plot", 
+                image: "https://i.ibb.co/sdHPBsVT/d02d7d53-152b-4182-b0ce-a3836f4e3c93.jpg",
+                details: "• 50*100 plot\n• Kitengela town behind National Bank\n• Mabati houses income 100K\n• Suitable for high-rise apartments\n• Selling @12 Million"
+            },
             { 
                 title: "Ruiru Bypass Apartments", 
                 location: "Ruiru", 
@@ -551,9 +560,9 @@
                 title: "Kitengela prime plot", 
                 location: "Yukos Kitengela Town", 
                 price: "KES 1.6M", 
-                type: "Plot", 
+                type: "plot", 
                 image: "https://i.ibb.co/0jbbNs48/b033d94d-e925-4ee3-88c6-154067d1ed04-1.png",
-                details: "50*100plot\n800M from Namanga Road\nSuitable for rentals units or Air BnB units\nNext to Leilas Bites"
+                details: "50*100 plot\n800M from Namanga Road\nSuitable for rentals units or Air BnB units\nNext to Leilas Bites"
             },
             { 
                 title: "Joska Modern Apartments", 
