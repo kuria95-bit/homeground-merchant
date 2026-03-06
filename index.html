@@ -26,7 +26,7 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         header .logo {
-            height: 80px; /* Increased height for more prominence */
+            height: 80px;
         }
         nav a {
             color: #fff;
@@ -57,7 +57,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5); /* Overlay for readability */
+            background: rgba(0, 0, 0, 0.5);
         }
         .hero > * {
             position: relative;
@@ -168,19 +168,31 @@
             margin: 5px 0;
             color: #555;
         }
-        .property-card .whatsapp-link {
+        .whatsapp-link, .details-btn {
             display: inline-block;
             margin-top: 10px;
             padding: 10px 15px;
-            background: #25d366;
-            color: #fff;
             text-decoration: none;
             border-radius: 5px;
             font-weight: 600;
             transition: background 0.3s;
+            cursor: pointer;
+            border: none;
         }
-        .property-card .whatsapp-link:hover {
+        .whatsapp-link {
+            background: #25d366;
+            color: #fff;
+        }
+        .whatsapp-link:hover {
             background: #1fae58;
+        }
+        .details-btn {
+            background: #2f3fa4;
+            color: white;
+            margin-right: 8px;
+        }
+        .details-btn:hover {
+            background: #1f2d7a;
         }
         .load-more {
             text-align: center;
@@ -294,7 +306,6 @@
             padding: 20px;
             font-size: 14px;
         }
-        /* WhatsApp Float */
         .whatsapp-float {
             position: fixed;
             bottom: 20px;
@@ -315,17 +326,83 @@
         .whatsapp-float:hover {
             transform: scale(1.1);
         }
-        /* Smooth scrolling */
         html {
             scroll-behavior: smooth;
         }
-        /* Media query for mobile */
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .modal-content {
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 900px;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+        }
+        #modalImage {
+            width: 100%;
+            max-height: 65vh;
+            object-fit: contain;
+            background: #000;
+        }
+        .modal-info {
+            padding: 25px;
+            text-align: center;
+            width: 100%;
+        }
+        .modal-info h2 {
+            margin: 0 0 15px;
+            font-family: 'Montserrat', sans-serif;
+            color: #2f3fa4;
+        }
+        .modal-info p {
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+        .whatsapp-link.large {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 14px 35px;
+            font-size: 1.2em;
+        }
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: white;
+            font-size: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .close-modal:hover,
+        .close-modal:focus {
+            color: #f4c430;
+            text-decoration: none;
+        }
+
         @media (max-width: 768px) {
             header {
                 padding: 10px 20px;
             }
             .logo {
-                height: 60px; /* Slightly smaller on mobile for better fit */
+                height: 60px;
             }
             nav a {
                 margin-left: 10px;
@@ -348,6 +425,14 @@
             .property-card img {
                 height: 180px;
             }
+            .modal-content {
+                max-width: 95%;
+            }
+            .close-modal {
+                top: 15px;
+                right: 20px;
+                font-size: 40px;
+            }
         }
     </style>
 </head>
@@ -361,15 +446,18 @@
             <a href="#contact">Contact</a>
         </nav>
     </header>
+
     <section id="home" class="hero">
         <h2>Trusted Land & Property Dealers in Kenya</h2>
         <p>Prime Plots • Modern Apartments • Smart Investments</p>
         <a href="#properties">Browse Properties</a>
     </section>
+
     <section id="about" class="about">
         <h3>About Us</h3>
         <p>Home Ground Merchants is a leading real estate firm specializing in genuine plots, apartments, and investment properties in prime Kenyan locations. With a focus on transparency, legal compliance, and client satisfaction, we help you secure your dream property with confidence.</p>
     </section>
+
     <section class="why-choose">
         <h3>Why Choose Home Ground Merchants?</h3>
         <ul>
@@ -380,6 +468,7 @@
             <li>Site Visits & Legal Support</li>
         </ul>
     </section>
+
     <section id="properties">
         <div class="filters">
             <button onclick="filterProps('all')">All</button>
@@ -391,6 +480,7 @@
             <button onclick="loadMore()">Load More</button>
         </div>
     </section>
+
     <section class="testimonials">
         <h3>What Our Clients Say</h3>
         <div class="testimonial-grid">
@@ -408,6 +498,7 @@
             </div>
         </div>
     </section>
+
     <section id="contact" class="contact">
         <h3>Contact Us</h3>
         <p>Get in touch for property details, site visits, or investment advice.</p>
@@ -426,10 +517,27 @@
             <a href="#">Instagram</a>
         </div>
     </section>
+
     <footer>
         © 2026 Home Ground Merchants. All Rights Reserved.
     </footer>
+
     <a class="whatsapp-float" href="https://wa.me/254724154316?text=Hello%20Home%20Ground%20Merchants,%20I%20am%20interested%20in%20one%20of%20your%20listed%20properties.%20Kindly%20share%20more%20details.%20Thank%20you." target="_blank">💬</a>
+
+    <!-- Property Details Modal -->
+    <div id="propertyModal" class="modal">
+        <span class="close-modal" onclick="closeModal()">×</span>
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="Property Image">
+            <div class="modal-info">
+                <h2 id="modalTitle"></h2>
+                <p><strong>Location:</strong> <span id="modalLocation"></span></p>
+                <p><strong>Price:</strong> <span id="modalPrice"></span></p>
+                <a id="modalWhatsApp" href="#" target="_blank" class="whatsapp-link large">Inquire on WhatsApp</a>
+            </div>
+        </div>
+    </div>
+
     <script>
         const properties = [
             { title: "Mihoko Kizito Apartments", location: "Mihoko Kizito", price: "KES 23.5M", type: "apartment", image: "https://i.ibb.co/sdHPBsVT/d02d7d53-152b-4182-b0ce-a3836f4e3c93.jpg" },
@@ -443,8 +551,10 @@
             { title: "Ngong Matasia Plot", location: "Matasia", price: "KES 6.5M", type: "plot", image: "https://iconprime.co.ke/wp-content/uploads/2023/04/WhatsApp-Image-2023-04-04-at-10.59.54-AM.webp" },
             { title: "Thika Makongeni Plot", location: "Makongeni", price: "KES 2.2M", type: "plot", image: "https://avenuepropertycenterkenya.com/wp-content/uploads/2024/06/33-1170x785.jpg" }
         ];
+
         let visible = 6;
         let current = "all";
+
         function render() {
             const list = document.getElementById("list");
             list.innerHTML = "";
@@ -452,6 +562,7 @@
                 .filter(p => current === "all" || p.type === current)
                 .slice(0, visible)
                 .forEach(p => {
+                    const whatsappMsg = encodeURIComponent(`Hello Home Ground Merchants, I am interested in ${p.title} at ${p.location} for ${p.price}. Kindly share more details. Thank you.`);
                     list.innerHTML += `
                         <div class="property-card">
                             <img src="${p.image}" alt="${p.title}">
@@ -459,20 +570,49 @@
                                 <h3>${p.title}</h3>
                                 <p>Location: ${p.location}</p>
                                 <p><strong>${p.price}</strong></p>
-                                <a href="https://wa.me/254724154316?text=Hello%20Home%20Ground%20Merchants,%20I%20am%20interested%20in%20${encodeURIComponent(p.title)}%20at%20${encodeURIComponent(p.location)}%20for%20${encodeURIComponent(p.price)}.%20Kindly%20share%20more%20details.%20Thank%20you." target="_blank" class="whatsapp-link">Inquire on WhatsApp</a>
+                                <button class="details-btn" 
+                                        onclick="showDetails('${p.title.replace(/'/g, "\\'")}', '${p.location.replace(/'/g, "\\'")}', '${p.price.replace(/'/g, "\\'")}', '${p.image}', 'https://wa.me/254724154316?text=${whatsappMsg}')">
+                                    Details
+                                </button>
+                                <a href="https://wa.me/254724154316?text=${whatsappMsg}" 
+                                   target="_blank" class="whatsapp-link">Quick Inquire</a>
                             </div>
                         </div>`;
                 });
         }
+
         function filterProps(type) {
             current = type;
             visible = 6;
             render();
         }
+
         function loadMore() {
             visible += 4;
             render();
         }
+
+        function showDetails(title, location, price, image, whatsappUrl) {
+            document.getElementById("modalImage").src = image;
+            document.getElementById("modalTitle").textContent = title;
+            document.getElementById("modalLocation").textContent = location;
+            document.getElementById("modalPrice").textContent = price;
+            document.getElementById("modalWhatsApp").href = whatsappUrl;
+            document.getElementById("propertyModal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("propertyModal").style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById("propertyModal");
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Initial render
         render();
     </script>
 </body>
