@@ -375,9 +375,20 @@
             margin: 10px 0;
             font-size: 1.1em;
         }
+        .modal-details {
+            margin: 20px 0;
+            text-align: left;
+            white-space: pre-wrap;
+            line-height: 1.6;
+            font-size: 1.05em;
+            background: #f8f9fc;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #2f3fa4;
+        }
         .whatsapp-link.large {
             display: inline-block;
-            margin-top: 20px;
+            margin-top: 25px;
             padding: 14px 35px;
             font-size: 1.2em;
         }
@@ -398,41 +409,17 @@
         }
 
         @media (max-width: 768px) {
-            header {
-                padding: 10px 20px;
-            }
-            .logo {
-                height: 60px;
-            }
-            nav a {
-                margin-left: 10px;
-            }
-            .hero {
-                padding: 100px 20px;
-            }
-            .hero h2 {
-                font-size: 32px;
-            }
-            .hero p {
-                font-size: 18px;
-            }
-            section {
-                padding: 60px 20px;
-            }
-            .property-grid {
-                grid-template-columns: 1fr;
-            }
-            .property-card img {
-                height: 180px;
-            }
-            .modal-content {
-                max-width: 95%;
-            }
-            .close-modal {
-                top: 15px;
-                right: 20px;
-                font-size: 40px;
-            }
+            header { padding: 10px 20px; }
+            .logo { height: 60px; }
+            nav a { margin-left: 10px; }
+            .hero { padding: 100px 20px; }
+            .hero h2 { font-size: 32px; }
+            .hero p { font-size: 18px; }
+            section { padding: 60px 20px; }
+            .property-grid { grid-template-columns: 1fr; }
+            .property-card img { height: 180px; }
+            .modal-content { max-width: 95%; }
+            .close-modal { top: 15px; right: 20px; font-size: 40px; }
         }
     </style>
 </head>
@@ -533,6 +520,10 @@
                 <h2 id="modalTitle"></h2>
                 <p><strong>Location:</strong> <span id="modalLocation"></span></p>
                 <p><strong>Price:</strong> <span id="modalPrice"></span></p>
+                <div class="modal-details">
+                    <strong>Property Details:</strong><br>
+                    <span id="modalDetails"></span>
+                </div>
                 <a id="modalWhatsApp" href="#" target="_blank" class="whatsapp-link large">Inquire on WhatsApp</a>
             </div>
         </div>
@@ -540,16 +531,86 @@
 
     <script>
         const properties = [
-            { title: "Kitengela plot", location: "Kitengela town behind National Bank", price: "KES 12M", type: "plot", image: "https://i.ibb.co/sdHPBsVT/d02d7d53-152b-4182-b0ce-a3836f4e3c93.jpg" },
-            { title: "Ruiru Bypass Apartments", location: "Ruiru", price: "KES 32M", type: "apartment", image: "https://s3.us-east-2.amazonaws.com/images.propertypro.africa/large/boma-yangu-kasarani-lot-1-estate-wRhJz7VzJnAH4EJFZ7Ix.jpeg" },
-            { title: "Kikuyu Ondiri Apartments", location: "Kikuyu", price: "KES 18.8M", type: "apartment", image: "https://images.kenyapropertycentre.com/properties/images/60610/06987cf43c2a9c-modern-2-bedroom-master-ensuite-apartment-for-sale-kikuyu-kiambu.jpg" },
-            { title: "Joska Modern Apartments", location: "Joska", price: "KES 27M", type: "apartment", image: "https://i0.wp.com/shiftersmovers.com/wp-content/uploads/2023/10/Best-1-bedroom-apartment-movers-in-Nairobi_-Cost-of-moving-to-a-1-bedroom-apartment-in-Nairobi_-Best.jpg?ssl=1" },
-            { title: "Kasarani Seasons Apartments", location: "Kasarani", price: "KES 45M", type: "apartment", image: "https://s3.us-east-2.amazonaws.com/images.propertypro.africa/large/boma-yangu-kasarani-lot-1-estate-wRhJz7VzJnAH4EJFZ7Ix.jpeg" },
-            { title: "Kitengela Milimani Plot", location: "Kitengela", price: "KES 3.2M", type: "plot", image: "https://premier-realty.co.ke/wp-content/uploads/2023/09/Untitled-design-2023-09-08T174004.209-1200x675.png" },
-            { title: "Ruiru Kamakis Plot", location: "Kamakis", price: "KES 1.8M", type: "plot", image: "https://kenyahomes.co.ke/wp-content/uploads/2023/05/web-4-1-1170x785.jpg" },
-            { title: "Joska Kantafu Plot", location: "Kantafu", price: "KES 2.5M", type: "plot", image: "https://kenyahomes.co.ke/wp-content/uploads/2024/09/photo_5882088399593128384_y-1170x720-1-1170x785.jpg" },
-            { title: "Ngong Matasia Plot", location: "Matasia", price: "KES 6.5M", type: "plot", image: "https://iconprime.co.ke/wp-content/uploads/2023/04/WhatsApp-Image-2023-04-04-at-10.59.54-AM.webp" },
-            { title: "Thika Makongeni Plot", location: "Makongeni", price: "KES 2.2M", type: "plot", image: "https://avenuepropertycenterkenya.com/wp-content/uploads/2024/06/33-1170x785.jpg" }
+            { 
+                title: "Mihoko Kizito Apartments", 
+                location: "Mihoko Kizito", 
+                price: "KES 23.5M", 
+                type: "apartment", 
+                image: "https://i.ibb.co/sdHPBsVT/d02d7d53-152b-4182-b0ce-a3836f4e3c93.jpg",
+                details: "Modern 2 & 3 bedroom apartments\nGated community with 24hr security\nProximity to schools, malls and Thika Road\nReady title deed\nIdeal for own use or rental investment"
+            },
+            { 
+                title: "Ruiru Bypass Apartments", 
+                location: "Ruiru", 
+                price: "KES 32M", 
+                type: "apartment", 
+                image: "https://s3.us-east-2.amazonaws.com/images.propertypro.africa/large/boma-yangu-kasarani-lot-1-estate-wRhJz7VzJnAH4EJFZ7Ix.jpeg",
+                details: "Spacious 2 & 3 bedroom units\nLift, backup generator & ample parking\nExcellent access via Ruiru bypass\nHigh rental yield potential"
+            },
+            { 
+                title: "Kikuyu Ondiri Apartments", 
+                location: "Kikuyu", 
+                price: "KES 18.8M", 
+                type: "apartment", 
+                image: "https://images.kenyapropertycentre.com/properties/images/60610/06987cf43c2a9c-modern-2-bedroom-master-ensuite-apartment-for-sale-kikuyu-kiambu.jpg",
+                details: "2-bedroom master ensuite apartments\nQuiet and serene environment\nGood road network\nSuitable for small families or first-time buyers"
+            },
+            { 
+                title: "Joska Modern Apartments", 
+                location: "Joska", 
+                price: "KES 27M", 
+                type: "apartment", 
+                image: "https://i0.wp.com/shiftersmovers.com/wp-content/uploads/2023/10/Best-1-bedroom-apartment-movers-in-Nairobi_-Cost-of-moving-to-a-1-bedroom-apartment-in-Nairobi_-Best.jpg?ssl=1",
+                details: "Contemporary 2 & 3 bedroom design\nClose to Kangundo Road\nGrowing residential hub\nGood appreciation expected"
+            },
+            { 
+                title: "Kasarani Seasons Apartments", 
+                location: "Kasarani", 
+                price: "KES 45M", 
+                type: "apartment", 
+                image: "https://s3.us-east-2.amazonaws.com/images.propertypro.africa/large/boma-yangu-kasarani-lot-1-estate-wRhJz7VzJnAH4EJFZ7Ix.jpeg",
+                details: "Luxury 3-4 bedroom apartments\nSwimming pool, gym & kids play area\nPrime Kasarani location near Thika Superhighway"
+            },
+            { 
+                title: "Kitengela Milimani Plot", 
+                location: "Kitengela", 
+                price: "KES 3.2M", 
+                type: "plot", 
+                image: "https://premier-realty.co.ke/wp-content/uploads/2023/09/Untitled-design-2023-09-08T174004.209-1200x675.png",
+                details: "50×100 ft residential plot\nLocated in Kitengela town – behind National Bank\nFlat red soil terrain\nElectricity and water connection nearby\nIdeal for maisonettes or rental units"
+            },
+            { 
+                title: "Ruiru Kamakis Plot", 
+                location: "Kamakis", 
+                price: "KES 1.8M", 
+                type: "plot", 
+                image: "https://kenyahomes.co.ke/wp-content/uploads/2023/05/web-4-1-1170x785.jpg",
+                details: "50×100 ft plot\nFreehold title ready\nNear tarmac road\nHigh demand rental location\nPerfect for immediate development"
+            },
+            { 
+                title: "Joska Kantafu Plot", 
+                location: "Kantafu", 
+                price: "KES 2.5M", 
+                type: "plot", 
+                image: "https://kenyahomes.co.ke/wp-content/uploads/2024/09/photo_5882088399593128384_y-1170x720-1-1170x785.jpg",
+                details: "50×100 corner plot\nCurrently has mabati houses generating ≈ KES 100K monthly income\nSuitable for high-rise apartments or commercial development\nFast appreciating area"
+            },
+            { 
+                title: "Ngong Matasia Plot", 
+                location: "Matasia", 
+                price: "KES 6.5M", 
+                type: "plot", 
+                image: "https://iconprime.co.ke/wp-content/uploads/2023/04/WhatsApp-Image-2023-04-04-at-10.59.54-AM.webp",
+                details: "100×100 ft prime residential plot\nScenic views in Ngong Matasia\nElectricity & borehole water available\nSuitable for luxury home or weekend getaway"
+            },
+            { 
+                title: "Thika Makongeni Plot", 
+                location: "Makongeni", 
+                price: "KES 2.2M", 
+                type: "plot", 
+                image: "https://avenuepropertycenterkenya.com/wp-content/uploads/2024/06/33-1170x785.jpg",
+                details: "50×100 ft plot\nClose to Thika town\nFlat fertile red soil\nGood for residential development or small-scale farming"
+            }
         ];
 
         let visible = 6;
@@ -562,16 +623,22 @@
                 .filter(p => current === "all" || p.type === current)
                 .slice(0, visible)
                 .forEach(p => {
-                    const whatsappMsg = encodeURIComponent(`Hello Home Ground Merchants, I am interested in ${p.title} at ${p.location} for ${p.price}. Kindly share more details. Thank you.`);
+                    const safeTitle    = p.title.replace(/'/g, "\\'");
+                    const safeLocation = p.location.replace(/'/g, "\\'");
+                    const safePrice    = p.price.replace(/'/g, "\\'");
+                    const safeImage    = p.image;
+                    const safeDetails  = (p.details || "").replace(/'/g, "\\'").replace(/\n/g, "\\n");
+                    const whatsappMsg  = encodeURIComponent(`Hello Home Ground Merchants, I am interested in ${p.title} at ${p.location} for ${p.price}. Kindly share more details. Thank you.`);
+
                     list.innerHTML += `
                         <div class="property-card">
-                            <img src="${p.image}" alt="${p.title}">
+                            <img src="${safeImage}" alt="${safeTitle}">
                             <div>
                                 <h3>${p.title}</h3>
                                 <p>Location: ${p.location}</p>
                                 <p><strong>${p.price}</strong></p>
                                 <button class="details-btn" 
-                                        onclick="showDetails('${p.title.replace(/'/g, "\\'")}', '${p.location.replace(/'/g, "\\'")}', '${p.price.replace(/'/g, "\\'")}', '${p.image}', 'https://wa.me/254724154316?text=${whatsappMsg}')">
+                                        onclick="showDetails('${safeTitle}', '${safeLocation}', '${safePrice}', '${safeImage}', '${safeDetails}', 'https://wa.me/254724154316?text=${whatsappMsg}')">
                                     Details
                                 </button>
                                 <a href="https://wa.me/254724154316?text=${whatsappMsg}" 
@@ -592,11 +659,12 @@
             render();
         }
 
-        function showDetails(title, location, price, image, whatsappUrl) {
+        function showDetails(title, location, price, image, details, whatsappUrl) {
             document.getElementById("modalImage").src = image;
             document.getElementById("modalTitle").textContent = title;
             document.getElementById("modalLocation").textContent = location;
             document.getElementById("modalPrice").textContent = price;
+            document.getElementById("modalDetails").textContent = details || "No additional details provided.";
             document.getElementById("modalWhatsApp").href = whatsappUrl;
             document.getElementById("propertyModal").style.display = "block";
         }
