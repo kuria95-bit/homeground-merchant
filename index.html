@@ -25,10 +25,8 @@
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-        header h1 {
-            margin: 0;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 24px;
+        header .logo {
+            height: 80px; /* Increased height for more prominence */
         }
         nav a {
             color: #fff;
@@ -170,6 +168,20 @@
             margin: 5px 0;
             color: #555;
         }
+        .property-card .whatsapp-link {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background: #25d366;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        .property-card .whatsapp-link:hover {
+            background: #1fae58;
+        }
         .load-more {
             text-align: center;
             padding-top: 30px;
@@ -307,11 +319,41 @@
         html {
             scroll-behavior: smooth;
         }
+        /* Media query for mobile */
+        @media (max-width: 768px) {
+            header {
+                padding: 10px 20px;
+            }
+            .logo {
+                height: 60px; /* Slightly smaller on mobile for better fit */
+            }
+            nav a {
+                margin-left: 10px;
+            }
+            .hero {
+                padding: 100px 20px;
+            }
+            .hero h2 {
+                font-size: 32px;
+            }
+            .hero p {
+                font-size: 18px;
+            }
+            section {
+                padding: 60px 20px;
+            }
+            .property-grid {
+                grid-template-columns: 1fr;
+            }
+            .property-card img {
+                height: 180px;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Home Ground Merchants</h1>
+        <img src="https://i.imgur.com/80h9p2t.png" alt="Home Ground Merchants Logo" class="logo">
         <nav>
             <a href="#home">Home</a>
             <a href="#about">About</a>
@@ -417,6 +459,7 @@
                                 <h3>${p.title}</h3>
                                 <p>Location: ${p.location}</p>
                                 <p><strong>${p.price}</strong></p>
+                                <a href="https://wa.me/254724154316?text=Hello%20Home%20Ground%20Merchants,%20I%20am%20interested%20in%20${encodeURIComponent(p.title)}%20at%20${encodeURIComponent(p.location)}%20for%20${encodeURIComponent(p.price)}.%20Kindly%20share%20more%20details.%20Thank%20you." target="_blank" class="whatsapp-link">Inquire on WhatsApp</a>
                             </div>
                         </div>`;
                 });
