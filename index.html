@@ -3,334 +3,434 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homeground Merchants KE - Real Estate in Kenya</title>
+    <title>Home Ground Merchants - Trusted Land & Property Dealers</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #003366;
-            --accent: #ffd700;
-            --light: #f4f4f4;
-            --dark: #333;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
         body {
-            font-family: Arial, sans-serif;
-            background-color: var(--light);
-            color: var(--dark);
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: #f8f9fc;
+            color: #333;
             line-height: 1.6;
-            font-size: 1rem;
         }
-
         header {
-            background-color: var(--primary);
-            color: white;
-            padding: 1.5rem 1rem;
-            text-align: center;
+            background: #2f3fa4;
+            color: #fff;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-
         header h1 {
             margin: 0;
-            font-size: clamp(1.8rem, 6vw, 2.8rem);
-            color: var(--accent);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
         }
-
-        header p {
-            margin-top: 0.5rem;
-            font-size: 1.1rem;
-        }
-
-        nav {
-            background-color: #004080;
-            padding: 1rem;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1.2rem;
-        }
-
         nav a {
-            color: white;
+            color: #fff;
+            margin-left: 20px;
             text-decoration: none;
-            font-weight: bold;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #f4c430;
+        }
+        section {
+            padding: 80px 40px;
+        }
+        .hero {
+            background-image: url('https://images.mansionglobal.com/im-446105?width=1920&size=1.7777777777777777');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            color: #fff;
+            text-align: center;
+            padding: 150px 40px;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Overlay for readability */
+        }
+        .hero > * {
+            position: relative;
+            z-index: 1;
+        }
+        .hero h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+        .hero p {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+        .hero a {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #f4c430;
+            color: #000;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 700;
             transition: background 0.3s;
         }
-
-        nav a:hover {
-            background: rgba(255, 215, 0, 0.2);
+        .hero a:hover {
+            background: #e0b320;
         }
-
-        #search {
+        .about, .why-choose {
+            background: #fff;
+            max-width: 1100px;
+            margin: auto;
             text-align: center;
-            padding: 1.5rem 1rem;
-            background-color: #e6e6e6;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            padding: 40px;
         }
-
-        #search input {
-            padding: 0.8rem;
-            width: 100%;
-            max-width: 400px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 1rem;
+        .about h3, .why-choose h3, .testimonials h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 32px;
+            margin-bottom: 20px;
         }
-
-        #search button {
-            padding: 0.8rem 1.5rem;
-            margin-top: 0.8rem;
-            background-color: var(--accent);
+        .about p, .why-choose p {
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto 20px;
+        }
+        .why-choose ul {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .why-choose li {
+            background: #f4f6fb;
+            padding: 20px;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+        .filters {
+            text-align: center;
+            padding-bottom: 20px;
+        }
+        .filters button {
+            margin: 5px;
+            padding: 10px 20px;
             border: none;
-            border-radius: 4px;
+            background: #2f3fa4;
+            color: #fff;
+            border-radius: 5px;
             cursor: pointer;
-            font-weight: bold;
-            min-width: 120px;
+            transition: background 0.3s;
         }
-
-        section {
-            padding: 2rem 1rem;
-            max-width: 1400px;
-            margin: 0 auto;
+        .filters button:hover {
+            background: #1f2d7a;
         }
-
-        h2 {
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            text-align: center;
-            font-size: clamp(1.6rem, 5vw, 2.2rem);
-        }
-
         .property-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: auto;
         }
-
-        .property {
-            background: white;
-            border: 1px solid #ddd;
-            border-radius: 8px;
+        .property-card {
+            background: #fff;
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            transition: transform 0.2s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
         }
-
-        .property:hover {
-            transform: translateY(-5px);
+        .property-card:hover {
+            transform: translateY(-10px);
         }
-
-        .property img {
+        .property-card img {
             width: 100%;
-            height: auto;
-            display: block;
-            loading: lazy;
+            height: 220px;
+            object-fit: cover;
         }
-
-        .property-content {
-            padding: 1.2rem;
+        .property-card div {
+            padding: 20px;
         }
-
-        .property h3 {
-            margin: 0 0 0.8rem;
-            font-size: 1.3rem;
-            color: var(--primary);
+        .property-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0 0 10px;
+            font-size: 22px;
         }
-
-        .property p {
-            margin: 0.4rem 0;
+        .property-card p {
+            margin: 5px 0;
+            color: #555;
         }
-
-        .cta {
-            display: inline-block;
-            margin-top: 1rem;
-            padding: 0.9rem 1.5rem;
-            background-color: #25D366;
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: bold;
-            min-height: 44px; /* touch-friendly */
-            line-height: 1.4;
-        }
-
-        .cta:hover {
-            background-color: #128C7E;
-        }
-
-        #about, #trust, #reviews {
-            background: white;
-            margin: 1.5rem;
-            padding: 1.8rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-        }
-
-        footer {
-            background-color: var(--primary);
-            color: white;
+        .load-more {
             text-align: center;
-            padding: 1.5rem;
-            margin-top: 2rem;
+            padding-top: 30px;
         }
-
-        .chat {
+        .load-more button {
+            padding: 12px 25px;
+            border: none;
+            background: #f4c430;
+            color: #000;
+            font-weight: 700;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .load-more button:hover {
+            background: #e0b320;
+        }
+        .testimonials {
+            background: #f4f6fb;
+            text-align: center;
+        }
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: auto;
+        }
+        .testimonial-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .testimonial-card p {
+            font-style: italic;
+            color: #555;
+        }
+        .testimonial-card cite {
+            display: block;
+            margin-top: 10px;
+            font-weight: 600;
+        }
+        .contact {
+            background: #fff;
+            text-align: center;
+            max-width: 1100px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            padding: 40px;
+        }
+        .contact h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        .contact p {
+            color: #555;
+        }
+        .contact a {
+            display: block;
+            margin: 10px 0;
+            color: #2f3fa4;
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .contact a:hover {
+            color: #f4c430;
+        }
+        .contact form {
+            max-width: 600px;
+            margin: 20px auto 0;
+            display: grid;
+            gap: 15px;
+        }
+        .contact input, .contact textarea {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .contact button {
+            padding: 12px;
+            background: #2f3fa4;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: background 0.3s;
+        }
+        .contact button:hover {
+            background: #1f2d7a;
+        }
+        .socials {
+            margin-top: 20px;
+        }
+        .socials a {
+            margin: 0 15px;
+            color: #2f3fa4;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        footer {
+            background: #2f3fa4;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+        /* WhatsApp Float */
+        .whatsapp-float {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background-color: #25D366;
+            background: #25d366;
+            color: #fff;
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 1000;
-        }
-
-        .chat a {
-            color: white;
-            font-size: 1.8rem;
+            font-size: 32px;
             text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
         }
-
-        /* Tablet and up */
-        @media (min-width: 768px) {
-            .property-grid {
-                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            }
-
-            nav ul {
-                flex-wrap: nowrap;
-            }
-
-            #search input {
-                margin-right: 1rem;
-            }
-
-            #search button {
-                margin-top: 0;
-            }
-
-            section {
-                padding: 3rem 2rem;
-            }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
         }
-
-        /* Desktop and up */
-        @media (min-width: 1024px) {
-            .property-grid {
-                grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            }
-
-            header {
-                padding: 2.5rem 1rem;
-            }
-
-            #about, #trust, #reviews {
-                margin: 2rem auto;
-                max-width: 900px;
-            }
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Homeground Merchants KE</h1>
-        <p>Trusted Property & Investment Partners</p>
+        <h1>Home Ground Merchants</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#properties">Properties</a>
+            <a href="#contact">Contact</a>
+        </nav>
     </header>
-
-    <nav>
-        <ul>
-            <li><a href="#lands">Lands</a></li>
-            <li><a href="#properties">Properties</a></li>
-            <li><a href="#apartments">Apartments/Buildings</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#trust">Why Trust Us</a></li>
-            <li><a href="#reviews">Reviews</a></li>
-        </ul>
-    </nav>
-
-    <section id="search">
-        <input type="text" id="location-search" placeholder="Search by location (e.g., Joska, Nairobi)...">
-        <button onclick="searchProperties()">Search</button>
+    <section id="home" class="hero">
+        <h2>Trusted Land & Property Dealers in Kenya</h2>
+        <p>Prime Plots • Modern Apartments • Smart Investments</p>
+        <a href="#properties">Browse Properties</a>
     </section>
-
-    <section id="featured">
-        <h2>Featured Properties</h2>
-        <div class="property-grid">
-            <div class="property" data-location="Joska">
-                <img src="placeholder-image-url-for-joska-property.jpg" alt="Joska Rental House on Kangundo Road">
-                <div class="property-content">
-                    <h3>Rental House in Joska on Kangundo Road</h3>
-                    <p><strong>Price:</strong> Ksh 11M</p>
-                    <p><strong>Income:</strong> Ksh 80,000/month (10 bedsitters + 2 shops)</p>
-                    <p>Approvals up to 4th floor | Prime investment location</p>
-                    <a href="https://wa.me/+254724154316?text=Hi%20Homeground%20Merchants,%20I'm%20interested%20in%20the%20Joska%20rental%20house%20on%20Kangundo%20Road" class="cta">Inquire on WhatsApp</a>
-                </div>
+    <section id="about" class="about">
+        <h3>About Us</h3>
+        <p>Home Ground Merchants is a leading real estate firm specializing in genuine plots, apartments, and investment properties in prime Kenyan locations. With a focus on transparency, legal compliance, and client satisfaction, we help you secure your dream property with confidence.</p>
+    </section>
+    <section class="why-choose">
+        <h3>Why Choose Home Ground Merchants?</h3>
+        <ul>
+            <li>Verified Titles & Transparent Deals</li>
+            <li>Prime Locations Near Nairobi</li>
+            <li>Flexible Payment Plans</li>
+            <li>Expert Guidance on Investments</li>
+            <li>Site Visits & Legal Support</li>
+        </ul>
+    </section>
+    <section id="properties">
+        <div class="filters">
+            <button onclick="filterProps('all')">All</button>
+            <button onclick="filterProps('apartment')">Apartments</button>
+            <button onclick="filterProps('plot')">Plots</button>
+        </div>
+        <div id="list" class="property-grid"></div>
+        <div class="load-more">
+            <button onclick="loadMore()">Load More</button>
+        </div>
+    </section>
+    <section class="testimonials">
+        <h3>What Our Clients Say</h3>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <p>"Home Ground Merchants made buying my plot in Kitengela seamless. Genuine titles and great support!"</p>
+                <cite>- Jane D., Investor</cite>
             </div>
-            <!-- Add more .property divs here as needed -->
+            <div class="testimonial-card">
+                <p>"Professional team, transparent process. Highly recommend for apartment investments."</p>
+                <cite>- Michael K., Buyer</cite>
+            </div>
+            <div class="testimonial-card">
+                <p>"Excellent locations and value for money. They handled everything from site visit to closing."</p>
+                <cite>- Sarah M., Homeowner</cite>
+            </div>
         </div>
     </section>
-
-    <!-- Other sections remain the same, just add content as before -->
-    <section class="category" id="lands">
-        <h2>Lands</h2>
-        <div class="property-grid">
-            <!-- Add land cards -->
+    <section id="contact" class="contact">
+        <h3>Contact Us</h3>
+        <p>Get in touch for property details, site visits, or investment advice.</p>
+        <a href="tel:+254724154316">📞 0724 154 316</a>
+        <a href="mailto:info@homegroundmerchants.com">✉️ info@homegroundmerchants.com</a>
+        <a href="https://wa.me/254724154316?text=Hello%20Home%20Ground%20Merchants,%20I%20am%20interested%20in%20one%20of%20your%20listed%20properties.%20Kindly%20share%20more%20details.%20Thank%20you.">💬 WhatsApp Us</a>
+        <form action="#" method="post">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" rows="4" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        <div class="socials">
+            <p>Follow Us</p>
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
         </div>
-        <p style="text-align:center; margin-top:1.5rem;"><a href="#">View More Lands →</a></p>
     </section>
-
-    <!-- Repeat for properties and apartments -->
-
-    <section id="about">
-        <h2>About Homeground Merchants KE</h2>
-        <p>We specialize in prime lands, rental properties, and apartments across Kenya. Our focus is on ready-title-deed investments with high return potential and hassle-free processes.</p>
-    </section>
-
-    <section id="trust">
-        <h2>Why Trust Homeground Merchants</h2>
-        <ul>
-            <li>Arranged site visits at your convenience</li>
-            <li>Ready title deeds & all approvals in place</li>
-            <li>Transparent pricing and full documentation</li>
-            <li>Proven track record in Kenyan real estate</li>
-        </ul>
-    </section>
-
-    <section id="reviews">
-        <h2>Client Reviews</h2>
-        <p>"Professional team — got my investment sorted quickly!" – John K.</p>
-        <p>"Excellent communication and genuine properties." – Mary W.</p>
-    </section>
-
     <footer>
-        <p>Contact: +254 724 154 316 | Trusted since day one</p>
+        © 2026 Home Ground Merchants. All Rights Reserved.
     </footer>
-
-    <div class="chat">
-        <a href="https://wa.me/254100494094?text=Hello%20Homeground%20Customer%20Care,%20I%20have%20a%20question..." title="Chat with Customer Care">💬</a>
-    </div>
-
+    <a class="whatsapp-float" href="https://wa.me/254724154316?text=Hello%20Home%20Ground%20Merchants,%20I%20am%20interested%20in%20one%20of%20your%20listed%20properties.%20Kindly%20share%20more%20details.%20Thank%20you." target="_blank">💬</a>
     <script>
-        function searchProperties() {
-            const query = document.getElementById("location-search").value.toLowerCase().trim();
-            const properties = document.querySelectorAll(".property");
-            properties.forEach(prop => {
-                const location = prop.getAttribute("data-location")?.toLowerCase() || "";
-                prop.style.display = location.includes(query) || query === "" ? "block" : "none";
-            });
+        const properties = [
+            { title: "Mihoko Kizito Apartments", location: "Mihoko Kizito", price: "KES 23.5M", type: "apartment", image: "https://i0.wp.com/shiftersmovers.com/wp-content/uploads/2023/03/Tsavo-Apartments-Tsavo-Apartments-locations-Tsavo-Apartments-for-rent-Tsavo-Apartments-for-sale-Tsavo-Apartments-Airbnb-1.jpg?ssl=1" },
+            { title: "Ruiru Bypass Apartments", location: "Ruiru", price: "KES 32M", type: "apartment", image: "https://s3.us-east-2.amazonaws.com/images.propertypro.africa/large/boma-yangu-kasarani-lot-1-estate-wRhJz7VzJnAH4EJFZ7Ix.jpeg" },
+            { title: "Kikuyu Ondiri Apartments", location: "Kikuyu", price: "KES 18.8M", type: "apartment", image: "https://images.kenyapropertycentre.com/properties/images/60610/06987cf43c2a9c-modern-2-bedroom-master-ensuite-apartment-for-sale-kikuyu-kiambu.jpg" },
+            { title: "Joska Modern Apartments", location: "Joska", price: "KES 27M", type: "apartment", image: "https://i0.wp.com/shiftersmovers.com/wp-content/uploads/2023/10/Best-1-bedroom-apartment-movers-in-Nairobi_-Cost-of-moving-to-a-1-bedroom-apartment-in-Nairobi_-Best.jpg?ssl=1" },
+            { title: "Kasarani Seasons Apartments", location: "Kasarani", price: "KES 45M", type: "apartment", image: "https://s3.us-east-2.amazonaws.com/images.propertypro.africa/large/boma-yangu-kasarani-lot-1-estate-wRhJz7VzJnAH4EJFZ7Ix.jpeg" },
+            { title: "Kitengela Milimani Plot", location: "Kitengela", price: "KES 3.2M", type: "plot", image: "https://premier-realty.co.ke/wp-content/uploads/2023/09/Untitled-design-2023-09-08T174004.209-1200x675.png" },
+            { title: "Ruiru Kamakis Plot", location: "Kamakis", price: "KES 1.8M", type: "plot", image: "https://kenyahomes.co.ke/wp-content/uploads/2023/05/web-4-1-1170x785.jpg" },
+            { title: "Joska Kantafu Plot", location: "Kantafu", price: "KES 2.5M", type: "plot", image: "https://kenyahomes.co.ke/wp-content/uploads/2024/09/photo_5882088399593128384_y-1170x720-1-1170x785.jpg" },
+            { title: "Ngong Matasia Plot", location: "Matasia", price: "KES 6.5M", type: "plot", image: "https://iconprime.co.ke/wp-content/uploads/2023/04/WhatsApp-Image-2023-04-04-at-10.59.54-AM.webp" },
+            { title: "Thika Makongeni Plot", location: "Makongeni", price: "KES 2.2M", type: "plot", image: "https://avenuepropertycenterkenya.com/wp-content/uploads/2024/06/33-1170x785.jpg" }
+        ];
+        let visible = 6;
+        let current = "all";
+        function render() {
+            const list = document.getElementById("list");
+            list.innerHTML = "";
+            properties
+                .filter(p => current === "all" || p.type === current)
+                .slice(0, visible)
+                .forEach(p => {
+                    list.innerHTML += `
+                        <div class="property-card">
+                            <img src="${p.image}" alt="${p.title}">
+                            <div>
+                                <h3>${p.title}</h3>
+                                <p>Location: ${p.location}</p>
+                                <p><strong>${p.price}</strong></p>
+                            </div>
+                        </div>`;
+                });
         }
+        function filterProps(type) {
+            current = type;
+            visible = 6;
+            render();
+        }
+        function loadMore() {
+            visible += 4;
+            render();
+        }
+        render();
     </script>
 </body>
 </html>
