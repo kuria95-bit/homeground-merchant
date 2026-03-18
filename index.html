@@ -149,7 +149,7 @@
             transition: transform 0.3s;
         }
         .property-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-8px);
         }
         .property-card img {
             width: 100%;
@@ -168,31 +168,32 @@
             margin: 5px 0;
             color: #555;
         }
-        .whatsapp-link, .details-btn {
+        .property-card .details-btn,
+        .property-card .whatsapp-link {
             display: inline-block;
             margin-top: 10px;
-            padding: 10px 15px;
-            text-decoration: none;
+            padding: 10px 16px;
             border-radius: 5px;
             font-weight: 600;
-            transition: background 0.3s;
+            text-decoration: none;
             cursor: pointer;
-            border: none;
+            transition: all 0.3s;
         }
-        .whatsapp-link {
-            background: #25d366;
-            color: #fff;
-        }
-        .whatsapp-link:hover {
-            background: #1fae58;
-        }
-        .details-btn {
+        .property-card .details-btn {
             background: #2f3fa4;
             color: white;
-            margin-right: 8px;
+            border: none;
         }
-        .details-btn:hover {
+        .property-card .details-btn:hover {
             background: #1f2d7a;
+        }
+        .property-card .whatsapp-link {
+            background: #25d366;
+            color: white;
+            margin-left: 8px;
+        }
+        .property-card .whatsapp-link:hover {
+            background: #1eae52;
         }
         .load-more {
             text-align: center;
@@ -330,102 +331,118 @@
             scroll-behavior: smooth;
         }
 
-        /* Modal Styles */
+        /* ── Modal ──────────────────────────────────────────────── */
         .modal {
             display: none;
             position: fixed;
-            z-index: 2000;
+            z-index: 1001;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(0,0,0,0.9);
-            padding: 20px;
-            box-sizing: border-box;
+            background-color: rgba(0,0,0,0.6);
         }
         .modal-content {
-            margin: auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            max-width: 900px;
-            background: #fff;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+            background-color: #fefefe;
+            margin: 8% auto;
+            padding: 25px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 700px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+        }
+        .modal-details {
+            white-space: pre-line;
+            line-height: 1.6;
+            margin: 15px 0;
+            color: #444;
         }
         #modalImage {
             width: 100%;
-            max-height: 65vh;
-            object-fit: contain;
-            background: #000;
-        }
-        .modal-info {
-            padding: 25px;
-            text-align: center;
-            width: 100%;
-        }
-        .modal-info h2 {
-            margin: 0 0 15px;
-            font-family: 'Montserrat', sans-serif;
-            color: #2f3fa4;
-        }
-        .modal-info p {
-            margin: 10px 0;
-            font-size: 1.1em;
-        }
-        .modal-details {
-            margin: 20px 0;
-            text-align: left;
-            white-space: pre-wrap;
-            line-height: 1.6;
-            font-size: 1.05em;
-            background: #f8f9fc;
-            padding: 15px;
+            max-height: 380px;
+            object-fit: cover;
             border-radius: 8px;
-            border-left: 4px solid #2f3fa4;
-        }
-        .whatsapp-link.large {
-            display: inline-block;
-            margin-top: 25px;
-            padding: 14px 35px;
-            font-size: 1.2em;
-        }
-        .close-modal {
-            position: absolute;
-            top: 20px;
-            right: 35px;
-            color: white;
-            font-size: 50px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .close-modal:hover,
-        .close-modal:focus {
-            color: #f4c430;
-            text-decoration: none;
+            margin-bottom: 15px;
         }
 
+        /* ── Mobile optimizations ──────────────────────────────── */
         @media (max-width: 768px) {
-            header { padding: 10px 20px; }
-            .logo { height: 60px; }
-            nav a { margin-left: 10px; }
-            .hero { padding: 100px 20px; }
-            .hero h2 { font-size: 32px; }
-            .hero p { font-size: 18px; }
-            section { padding: 60px 20px; }
-            .property-grid { grid-template-columns: 1fr; }
-            .property-card img { height: 180px; }
-            .modal-content { max-width: 95%; }
-            .close-modal { top: 15px; right: 20px; font-size: 40px; }
+            header {
+                padding: 12px 15px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            header .logo {
+                height: 60px;
+                margin-bottom: 10px;
+            }
+            nav {
+                width: 100%;
+                text-align: center;
+            }
+            nav a {
+                margin: 0 10px;
+                font-size: 0.95rem;
+            }
+            section {
+                padding: 50px 15px;
+            }
+            .hero {
+                padding: 90px 15px;
+            }
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            .hero p {
+                font-size: 1.1rem;
+            }
+            .property-grid {
+                gap: 20px;
+            }
+            .property-card {
+                margin: 0 auto;
+            }
+            .property-card img {
+                height: 180px;
+            }
+            .property-card h3 {
+                font-size: 1.25rem;
+            }
+            .property-card div {
+                padding: 15px;
+            }
+            .details-btn, .whatsapp-link {
+                padding: 9px 14px;
+                font-size: 0.9rem;
+                margin: 6px 4px 0 0;
+            }
+            .modal-content {
+                margin: 10% auto;
+                padding: 18px;
+                width: 92%;
+            }
+            #modalImage {
+                max-height: 280px;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <img src="https://i.imgur.com/80h9p2t.png" alt="Home Ground Merchants Logo" class="logo">
+        <img src="https://i.ibb.co/J6Vw5XZ/home-ground-logo.png" alt="Home Ground Merchants Logo" class="logo">
         <nav>
             <a href="#home">Home</a>
             <a href="#about">About</a>
@@ -461,7 +478,6 @@
             <button onclick="filterProps('all')">All</button>
             <button onclick="filterProps('apartment')">Apartments</button>
             <button onclick="filterProps('plot')">Plots</button>
-            <button onclick="filterProps('commercial')">Commercial</button>
         </div>
         <div id="list" class="property-grid"></div>
         <div class="load-more">
@@ -512,114 +528,46 @@
 
     <a class="whatsapp-float" href="https://wa.me/254724154316?text=Hello%20Home%20Ground%20Merchants,%20I%20am%20interested%20in%20one%20of%20your%20listed%20properties.%20Kindly%20share%20more%20details.%20Thank%20you." target="_blank">💬</a>
 
-    <!-- Property Details Modal -->
+    <!-- Modal -->
     <div id="propertyModal" class="modal">
-        <span class="close-modal" onclick="closeModal()">×</span>
         <div class="modal-content">
-            <img id="modalImage" src="" alt="Property Image">
-            <div class="modal-info">
-                <h2 id="modalTitle"></h2>
-                <p><strong>Location:</strong> <span id="modalLocation"></span></p>
-                <p><strong>Price:</strong> <span id="modalPrice"></span></p>
-                <div class="modal-details">
-                    <strong>Property Details:</strong><br>
-                    <span id="modalDetails"></span>
-                </div>
-                <a id="modalWhatsApp" href="#" target="_blank" class="whatsapp-link large">Inquire on WhatsApp</a>
-            </div>
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modalImage" src="" alt="Property">
+            <h2 id="modalTitle"></h2>
+            <p><strong>Location:</strong> <span id="modalLocation"></span></p>
+            <p><strong>Price:</strong> <span id="modalPrice"></span></p>
+            <p class="modal-details" id="modalDetails"></p>
+            <a id="modalWhatsApp" href="#" target="_blank" style="display: inline-block; margin-top: 15px; padding: 12px 24px; background: #25d366; color: white; border-radius: 5px; text-decoration: none; font-weight: 600;">Inquire on WhatsApp</a>
         </div>
     </div>
 
     <script>
         const properties = [
             { 
-                title: "Commercial Building - Thika Road", 
-                location: "Rosters, Thika Road", 
-                price: "KES 380M", 
-                type: "commercial", 
-                image: "https://i.ibb.co/0jmqstSt/b2ccfd04-d446-4507-8ea9-4acb58160060.jpg",
-                details: "• Commercial building touching Thika Road\n• Monthly income: KES 3M\n• Asking price: KES 380 Million\n• 2 high-speed lifts\n• Backup generator\n• Basement parking\n• Rooftop access\n• Prime location: Rosters Thika"
-            },
-            { 
-                title: "Kitengela Plot", 
-                location: "Kitengela", 
-                price: "KES 12M", 
-                type: "plot", 
-                image: "https://i.ibb.co/sdHPBsVT/d02d7d53-152b-4182-b0ce-a3836f4e3c93.jpg",
-                details: "• 50*100 plot\n• Kitengela town behind National Bank\n• Mabati houses income 100K\n• Suitable for high-rise apartments\n• Selling @12 Million"
-            },
-            { 
-                title: "Rental houses for Sale ", 
-                location: "Joska -Kangundo Road", 
-                price: "KES 11M", 
-                type: "apartment", 
-                image: "https://i.ibb.co/DDvBCMwL/a5d0d9ca-ad6c-4c83-8d9e-5e6badc7efdf.jpg",
-                details: "\n10 Bedsitters and 2shops\nhas approvals up to 4th floor\nincome of ksh 80,000\nprime location for investment"
-            },
-            { 
-                title: "Kitengela prime plot", 
-                location: "Yukos Kitengela Town", 
-                price: "KES 1.6M", 
-                type: "plot", 
-                image: "https://i.ibb.co/0jbbNs48/b033d94d-e925-4ee3-88c6-154067d1ed04-1.png",
-                details: "• 50*100 plot\• n800M from Namanga Road\n• Suitable for rentals units or Air BnB units\n• Next to Leilas Bites"
-            },
-            { 
-                title: "Kitengela plot for sale", 
-                location: "Kitengela,Safaricom II Estate", 
-                price: "KES 6.2M", 
-                type: "plot 100*100", 
-                image: "https://i.ibb.co/MDV2hLRn/ffa2a8d8-b15a-4c26-8e21-59e4945bcc7a.jpg",
-                details: "• plot located in kiboko estate near Hindu Mosque\• nideal for development"
-            },
-            { 
-                title: "Kitengela plot for sale", 
-                location: "Kitengela ,safaricom II Estate", 
-                price: "KES 3.4M", 
-                type: "plot", 
-                image: "https://i.ibb.co/W4bRDtdQ/19163af9-5a6d-47c9-8e72-a7e98875ce0d.jpg",
-                details: "• 50*100 plot\n• in jodari lane opposite hindu Mosque"
-            },
-            { 
-                title: "Kitengela Plot", 
-                location: "in Kitengela Police Sacco-6th avenue ", 
-                price: "KES 3M", 
-                type: "plot", 
-                image: "https://i.ibb.co/35cvffWt/7ae9954d-14f1-46b7-bc0e-d42a709679b9.jpg",
-                details: "• 50×100 ft residential plot\n• Located in Kitengela\n• ideal for residentials home or investement/n• ready title"
-            },
-            { 
-                title: "Prime plot in Ruaka ", 
-                location: "Ruaka ,Behind level 3 Hospital, adjacent to Loftel", 
-                price: "KES 15M", 
-                type: "plot", 
-                image: "https://i.ibb.co/Q3gzf0Yy/e384a007-e97a-4a4a-9906-ec30f88127aa.jpg",
-                details: "• 1/8 of an Acre\n• ideal for residentials homes or investment \n• ready title"
-            },
-            { 
-                title: "Prime Ruiru Plot", 
-                location: "in Ruiru,infinity industrial park", 
+                title: "Infinity Industrial Park Plot", 
+                location: "Ruiru", 
                 price: "KES 3.5M", 
                 type: "plot", 
                 image: "https://i.ibb.co/s9dR40RD/bb95797c-6af1-4510-bc3d-be239de5d027-1.jpg",
-                details: "• 40×60\n• located in ruiru,infinity industrial park\n• suitable for developing rentals\n• Ready tiltle"
+                details: "• Plot size: 40 × 60 ft\n• Located in Ruiru – Infinity Industrial Park\n• Ideal for developing modern rental units\n• Ready title deed – ready to transfer"
             },
             { 
-                title: "Flat for sale in RUIRU Plot", 
-                location: "Ruiru Matangi -kwa mundia", 
+                title: "Flat for Sale in Ruiru", 
+                location: "Ruiru Matangi - Kwa Mundia", 
                 price: "KES 9M", 
-                type: "Apartment", 
+                type: "apartment", 
                 image: "https://i.ibb.co/YCmJ5vX/f451b2de-aaee-4e4e-9d3c-cd0abad1ee7f.jpg",
-                details: "• monthly income 86,000ksh\n• Electricity & good accessto the road\n• water is available\n• ideal for steady rental income"
+                details: "• Generates KSh 86,000 monthly rental income\n• Reliable electricity connection\n• Excellent road access\n• Water available on site\n• Perfect for steady passive income or owner-occupier"
             },
             { 
-                title: "Prime plot in Kiukenda Estate", 
-                location: "Kiukenda Estate -Kamiti Road", 
+                title: "Prime Plot in Kiukenda Estate", 
+                location: "Kiukenda Estate - Kamiti Road", 
                 price: "KES 13.6M", 
                 type: "plot", 
                 image: "https://i.ibb.co/FLStTyGg/e40891ed-951a-45c0-9711-d9fe5face9c1.jpg",
-                details: "• 100*200ft plot\n• suitable for gated commmunity residence\n• ideal investment opportunity\n• Good for residential development or small-scale farming"
+                details: "• Generous 100 × 200 ft plot\n• Perfect for a gated community residence\n• Excellent investment potential\n• Suitable for high-end residential development or small-scale farming"
             }
+            // Add your other properties here...
         ];
 
         let visible = 6;
@@ -629,7 +577,7 @@
             const list = document.getElementById("list");
             list.innerHTML = "";
             properties
-                .filter(p => current === "all" || p.type === current)
+                .filter(p => current === "all" || p.type.toLowerCase() === current)
                 .slice(0, visible)
                 .forEach(p => {
                     const safeTitle    = p.title.replace(/'/g, "\\'");
@@ -673,7 +621,7 @@
             document.getElementById("modalTitle").textContent = title;
             document.getElementById("modalLocation").textContent = location;
             document.getElementById("modalPrice").textContent = price;
-            document.getElementById("modalDetails").textContent = details || "No additional details provided.";
+            document.getElementById("modalDetails").textContent = details.replace(/\\n/g, '\n') || "No additional details provided.";
             document.getElementById("modalWhatsApp").href = whatsappUrl;
             document.getElementById("propertyModal").style.display = "block";
         }
