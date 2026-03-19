@@ -1,696 +1,286 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Ground Merchants - Trusted Land & Property Dealers</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Roboto', sans-serif;
-            background: #f8f9fc;
-            color: #333;
-            line-height: 1.6;
-        }
-        header {
-            background: #2f3fa4;
-            color: #fff;
-            padding: 15px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        header .logo {
-            height: 80px;
-        }
-        nav a {
-            color: #fff;
-            margin-left: 20px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-        nav a:hover {
-            color: #f4c430;
-        }
-        section {
-            padding: 80px 40px;
-        }
-        .hero {
-            background-image: url('https://images.mansionglobal.com/im-446105?width=1920&size=1.7777777777777777');
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            color: #fff;
-            text-align: center;
-            padding: 150px 40px;
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-        }
-        .hero > * {
-            position: relative;
-            z-index: 1;
-        }
-        .hero h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 48px;
-            margin-bottom: 15px;
-        }
-        .hero p {
-            font-size: 24px;
-            margin-bottom: 30px;
-        }
-        .hero a {
-            display: inline-block;
-            padding: 15px 30px;
-            background: #f4c430;
-            color: #000;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 700;
-            transition: background 0.3s;
-        }
-        .hero a:hover {
-            background: #e0b320;
-        }
-        .about, .why-choose {
-            background: #fff;
-            max-width: 1100px;
-            margin: auto;
-            text-align: center;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            padding: 40px;
-        }
-        .about h3, .why-choose h3, .testimonials h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 32px;
-            margin-bottom: 20px;
-        }
-        .about p, .why-choose p {
-            color: #555;
-            max-width: 800px;
-            margin: 0 auto 20px;
-        }
-        .why-choose ul {
-            list-style: none;
-            padding: 0;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        .why-choose li {
-            background: #f4f6fb;
-            padding: 20px;
-            border-radius: 8px;
-            font-weight: 600;
-        }
-        .filters {
-            text-align: center;
-            padding-bottom: 20px;
-        }
-        .filters button {
-            margin: 5px;
-            padding: 10px 20px;
-            border: none;
-            background: #2f3fa4;
-            color: #fff;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        .filters button:hover {
-            background: #1f2d7a;
-        }
-        .property-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1100px;
-            margin: auto;
-        }
-        .property-card {
-            background: #fff;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        .property-card:hover {
-            transform: translateY(-10px);
-        }
-        .property-card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-        }
-        .property-card div {
-            padding: 20px;
-        }
-        .property-card h3 {
-            font-family: 'Montserrat', sans-serif;
-            margin: 0 0 10px;
-            font-size: 22px;
-        }
-        .property-card p {
-            margin: 5px 0;
-            color: #555;
-        }
-        .whatsapp-link, .details-btn {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 10px 15px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 600;
-            transition: background 0.3s;
-            cursor: pointer;
-            border: none;
-        }
-        .whatsapp-link {
-            background: #25d366;
-            color: #fff;
-        }
-        .whatsapp-link:hover {
-            background: #1fae58;
-        }
-        .details-btn {
-            background: #2f3fa4;
-            color: white;
-            margin-right: 8px;
-        }
-        .details-btn:hover {
-            background: #1f2d7a;
-        }
-        .load-more {
-            text-align: center;
-            padding-top: 30px;
-        }
-        .load-more button {
-            padding: 12px 25px;
-            border: none;
-            background: #f4c430;
-            color: #000;
-            font-weight: 700;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        .load-more button:hover {
-            background: #e0b320;
-        }
-        .testimonials {
-            background: #f4f6fb;
-            text-align: center;
-        }
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1100px;
-            margin: auto;
-        }
-        .testimonial-card {
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-        .testimonial-card p {
-            font-style: italic;
-            color: #555;
-        }
-        .testimonial-card cite {
-            display: block;
-            margin-top: 10px;
-            font-weight: 600;
-        }
-        .contact {
-            background: #fff;
-            text-align: center;
-            max-width: 1100px;
-            margin: auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            padding: 40px;
-        }
-        .contact h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 32px;
-            margin-bottom: 20px;
-        }
-        .contact p {
-            color: #555;
-        }
-        .contact a {
-            display: block;
-            margin: 10px 0;
-            color: #2f3fa4;
-            font-weight: 600;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        .contact a:hover {
-            color: #f4c430;
-        }
-        .contact form {
-            max-width: 600px;
-            margin: 20px auto 0;
-            display: grid;
-            gap: 15px;
-        }
-        .contact input, .contact textarea {
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        .contact button {
-            padding: 12px;
-            background: #2f3fa4;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: 700;
-            transition: background 0.3s;
-        }
-        .contact button:hover {
-            background: #1f2d7a;
-        }
-        .socials {
-            margin-top: 20px;
-        }
-        .socials a {
-            margin: 0 15px;
-            color: #2f3fa4;
-            font-weight: 600;
-            text-decoration: none;
-        }
-        footer {
-            background: #2f3fa4;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-            font-size: 14px;
-        }
-        .whatsapp-float {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #25d366;
-            color: #fff;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            text-decoration: none;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            transition: transform 0.3s;
-        }
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-        }
-        html {
-            scroll-behavior: smooth;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Homeground Merchants KE | Prime Plots, Apartments & Investments</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --primary: #2f3fa4;
+        --green: #16a34a;
+        --dark: #111827;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        font-family: 'Roboto', sans-serif;
+        background: #f4f6fb;
+        line-height: 1.6;
+    }
+    header {
+        background: var(--primary);
+        color: white;
+        padding: 18px 20px;
+        text-align: center;
+        font-size: 1.4rem;
+        font-weight: 700;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .hero {
+        background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+                    url('https://images.mansionglobal.com/im-446105?width=1920') center/cover no-repeat;
+        color: white;
+        text-align: center;
+        padding: 140px 20px 100px;
+    }
+    .hero h1 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: clamp(2.2rem, 5vw, 3.5rem);
+        margin-bottom: 12px;
+    }
+    .hero p {
+        font-size: 1.2rem;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+    .search {
+        text-align: center;
+        padding: 25px 20px;
+        background: white;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+    .search input {
+        width: 90%;
+        max-width: 500px;
+        padding: 14px 20px;
+        border: 2px solid #ddd;
+        border-radius: 50px;
+        font-size: 1.05rem;
+        outline: none;
+        transition: 0.3s;
+    }
+    .search input:focus {
+        border-color: var(--primary);
+    }
+    .filters {
+        text-align: center;
+        padding: 20px;
+        background: white;
+    }
+    .filters button {
+        margin: 6px;
+        padding: 12px 24px;
+        border: none;
+        background: var(--primary);
+        color: white;
+        border-radius: 50px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: 0.3s;
+    }
+    .filters button.active,
+    .filters button:hover {
+        background: var(--green);
+        transform: translateY(-2px);
+    }
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 28px;
+        padding: 30px 20px;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+    .card {
+        border-radius: 16px;
+        overflow: hidden;
+        background: white;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        transition: all 0.4s ease;
+    }
+    .card:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    }
+    .plot { border-top: 7px solid #16a34a; }
+    .apartment { border-top: 7px solid #111827; }
+    .commercial { border-top: 7px solid #2f3fa4; }
 
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.9);
-            padding: 20px;
-            box-sizing: border-box;
-        }
-        .modal-content {
-            margin: auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            max-width: 900px;
-            background: #fff;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.4);
-        }
-        #modalImage {
-            width: 100%;
-            max-height: 65vh;
-            object-fit: contain;
-            background: #000;
-        }
-        .modal-info {
-            padding: 25px;
-            text-align: center;
-            width: 100%;
-        }
-        .modal-info h2 {
-            margin: 0 0 15px;
-            font-family: 'Montserrat', sans-serif;
-            color: #2f3fa4;
-        }
-        .modal-info p {
-            margin: 10px 0;
-            font-size: 1.1em;
-        }
-        .modal-details {
-            margin: 20px 0;
-            text-align: left;
-            white-space: pre-wrap;
-            line-height: 1.6;
-            font-size: 1.05em;
-            background: #f8f9fc;
-            padding: 15px;
-            border-radius: 8px;
-            border-left: 4px solid #2f3fa4;
-        }
-        .whatsapp-link.large {
-            display: inline-block;
-            margin-top: 25px;
-            padding: 14px 35px;
-            font-size: 1.2em;
-        }
-        .close-modal {
-            position: absolute;
-            top: 20px;
-            right: 35px;
-            color: white;
-            font-size: 50px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .close-modal:hover,
-        .close-modal:focus {
-            color: #f4c430;
-            text-decoration: none;
-        }
+    .card img {
+        width: 100%;
+        height: 230px;
+        object-fit: cover;
+    }
+    .content {
+        padding: 20px;
+    }
+    .location {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #222;
+    }
+    .price {
+        font-size: 1.8rem;
+        color: var(--green);
+        font-weight: 700;
+        margin: 10px 0;
+    }
+    .badge {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background: #f59e0b;
+        color: white;
+        padding: 6px 14px;
+        font-weight: bold;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    }
+    .btn {
+        display: inline-block;
+        margin: 8px 6px 0 0;
+        padding: 12px 18px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.95rem;
+    }
+    .whatsapp { background: #25d366; color: white; }
+    .call { background: var(--primary); color: white; }
 
-        @media (max-width: 768px) {
-            header { padding: 10px 20px; }
-            .logo { height: 60px; }
-            nav a { margin-left: 10px; }
-            .hero { padding: 100px 20px; }
-            .hero h2 { font-size: 32px; }
-            .hero p { font-size: 18px; }
-            section { padding: 60px 20px; }
-            .property-grid { grid-template-columns: 1fr; }
-            .property-card img { height: 180px; }
-            .modal-content { max-width: 95%; }
-            .close-modal { top: 15px; right: 20px; font-size: 40px; }
-        }
-    </style>
+    footer {
+        background: var(--primary);
+        color: white;
+        text-align: center;
+        padding: 30px 20px;
+        font-size: 1.1rem;
+    }
+    .contact-info {
+        margin-top: 10px;
+        font-size: 1.3rem;
+        font-weight: bold;
+    }
+</style>
 </head>
 <body>
-    <header>
-        <img src="https://i.imgur.com/80h9p2t.png" alt="Home Ground Merchants Logo" class="logo">
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#properties">Properties</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
 
-    <section id="home" class="hero">
-        <h2>Trusted Land & Property Dealers in Kenya</h2>
-        <p>Prime Plots • Modern Apartments • Smart Investments</p>
-        <a href="#properties">Browse Properties</a>
-    </section>
+<header>HOMEGROUND MERCHANTS KE</header>
 
-    <section id="about" class="about">
-        <h3>About Us</h3>
-        <p>Home Ground Merchants is a leading real estate firm specializing in genuine plots, apartments, and investment properties in prime Kenyan locations. With a focus on transparency, legal compliance, and client satisfaction, we help you secure your dream property with confidence.</p>
-    </section>
+<section class="hero">
+    <h1>Prime Plots • Apartments • Investment Deals</h1>
+    <p>Verified Titles | High ROI | Trusted Property Experts in Kenya</p>
+</section>
 
-    <section class="why-choose">
-        <h3>Why Choose Home Ground Merchants?</h3>
-        <ul>
-            <li>Verified Titles & Transparent Deals</li>
-            <li>Prime Locations Near Nairobi</li>
-            <li>Flexible Payment Plans</li>
-            <li>Expert Guidance on Investments</li>
-            <li>Site Visits & Legal Support</li>
-        </ul>
-    </section>
+<div class="search">
+    <input type="text" id="search" placeholder="🔍 Search by location (e.g. Ruaka, Joska, Thika Road...)" onkeyup="searchProps()">
+</div>
 
-    <section id="properties">
-        <div class="filters">
-            <button onclick="filterProps('all')">All</button>
-            <button onclick="filterProps('apartment')">Apartments</button>
-            <button onclick="filterProps('plot')">Plots</button>
-            <button onclick="filterProps('commercial')">Commercial</button>
-        </div>
-        <div id="list" class="property-grid"></div>
-        <div class="load-more">
-            <button onclick="loadMore()">Load More</button>
-        </div>
-    </section>
+<div class="filters">
+    <button onclick="filter('all')" class="active" id="btn-all">All</button>
+    <button onclick="filter('plot')" id="btn-plot">Plots</button>
+    <button onclick="filter('apartment')" id="btn-apartment">Apartments</button>
+    <button onclick="filter('commercial')" id="btn-commercial">Commercial</button>
+</div>
 
-    <section class="testimonials">
-        <h3>What Our Clients Say</h3>
-        <div class="testimonial-grid">
-            <div class="testimonial-card">
-                <p>"Home Ground Merchants made buying my plot in Kitengela seamless. Genuine titles and great support!"</p>
-                <cite>- Jane D., Investor</cite>
+<div id="grid" class="grid"></div>
+
+<footer>
+    📞 <strong>0724 154 316</strong><br>
+    <a href="https://wa.me/254724154316" target="_blank" style="color:#25d366; text-decoration:none;">
+        💬 WhatsApp Us for Instant Deals
+    </a>
+    <div class="contact-info">Homeground Merchants KE</div>
+</footer>
+
+<script>
+const properties = [
+    {
+        title: "Prime Plot",
+        location: "Ruaka behind Loftel",
+        price: "KES 13M",
+        type: "plot",
+        image: "https://i.ibb.co/Q3gzf0Yy/e384a007.jpg",
+        featured: true,
+        details: "Ideal for rentals or Airbnb"
+    },
+    {
+        title: "Rental Apartment",
+        location: "Joska Kangundo Road",
+        price: "KES 11M",
+        type: "apartment",
+        image: "https://i.ibb.co/DDvBCMwL/a5d0d9ca.jpg",
+        details: "Income KES 80,000 per month"
+    },
+    {
+        title: "Commercial Building",
+        location: "Thika Road",
+        price: "KES 380M",
+        type: "commercial",
+        image: "https://i.ibb.co/0jmqstSt/b2ccfd04.jpg",
+        details: "Income KES 3M monthly"
+    }
+];
+
+let currentFilter = "all";
+
+function render(list) {
+    const grid = document.getElementById("grid");
+    grid.innerHTML = "";
+
+    list.forEach(p => {
+        const whatsappMsg = encodeURIComponent(
+            `Hello Homeground Merchants,\n\nI'm interested in:\n\n📌 ${p.title}\n📍 ${p.location}\n💰 ${p.price}\n\nKindly share more details.`
+        );
+
+        grid.innerHTML += `
+        <div class="card ${p.type}">
+            ${p.featured ? `<div class="badge">🔥 HOT DEAL</div>` : ""}
+            <img src="${p.image}" alt="${p.title}">
+            <div class="content">
+                <div class="location">${p.location}</div>
+                <div class="price">${p.price}</div>
+                <p>${p.details}</p>
+                ${p.details.toLowerCase().includes("income") ? `<p style="color:#16a34a;font-weight:bold;margin-top:8px;">💸 Income Generating</p>` : ""}
+                
+                <a class="btn whatsapp" href="https://wa.me/254724154316?text=${whatsappMsg}" target="_blank">💬 WhatsApp</a>
+                <a class="btn call" href="tel:+254724154316">📞 Call Now</a>
             </div>
-            <div class="testimonial-card">
-                <p>"Professional team, transparent process. Highly recommend for apartment investments."</p>
-                <cite>- Michael K., Buyer</cite>
-            </div>
-            <div class="testimonial-card">
-                <p>"Excellent locations and value for money. They handled everything from site visit to closing."</p>
-                <cite>- Sarah M., Homeowner</cite>
-            </div>
-        </div>
-    </section>
+        </div>`;
+    });
+}
 
-    <section id="contact" class="contact">
-        <h3>Contact Us</h3>
-        <p>Get in touch for property details, site visits, or investment advice.</p>
-        <a href="tel:+254724154316">📞 0724 154 316</a>
-        <a href="mailto:info@homegroundmerchants.com">✉️ info@homegroundmerchants.com</a>
-        <a href="https://wa.me/254724154316?text=Hello%20Home%20Ground%20Merchants,%20I%20am%20interested%20in%20one%20of%20your%20listed%20properties.%20Kindly%20share%20more%20details.%20Thank%20you.">💬 WhatsApp Us</a>
-        <form action="#" method="post">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" rows="4" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-        <div class="socials">
-            <p>Follow Us</p>
-            <a href="#">Facebook</a>
-            <a href="#">Instagram</a>
-        </div>
-    </section>
+function filter(type) {
+    currentFilter = type;
 
-    <footer>
-        © 2026 Home Ground Merchants. All Rights Reserved.
-    </footer>
+    // Highlight active button
+    document.querySelectorAll('.filters button').forEach(btn => {
+        btn.classList.toggle('active', 
+            (type === 'all' && btn.id === 'btn-all') ||
+            (type === 'plot' && btn.id === 'btn-plot') ||
+            (type === 'apartment' && btn.id === 'btn-apartment') ||
+            (type === 'commercial' && btn.id === 'btn-commercial')
+        );
+    });
 
-    <a class="whatsapp-float" href="https://wa.me/254724154316?text=Hello%20Home%20Ground%20Merchants,%20I%20am%20interested%20in%20one%20of%20your%20listed%20properties.%20Kindly%20share%20more%20details.%20Thank%20you." target="_blank">💬</a>
+    const filtered = properties.filter(p => type === "all" || p.type === type);
+    render(filtered);
+}
 
-    <!-- Property Details Modal -->
-    <div id="propertyModal" class="modal">
-        <span class="close-modal" onclick="closeModal()">×</span>
-        <div class="modal-content">
-            <img id="modalImage" src="" alt="Property Image">
-            <div class="modal-info">
-                <h2 id="modalTitle"></h2>
-                <p><strong>Location:</strong> <span id="modalLocation"></span></p>
-                <p><strong>Price:</strong> <span id="modalPrice"></span></p>
-                <div class="modal-details">
-                    <strong>Property Details:</strong><br>
-                    <span id="modalDetails"></span>
-                </div>
-                <a id="modalWhatsApp" href="#" target="_blank" class="whatsapp-link large">Inquire on WhatsApp</a>
-            </div>
-        </div>
-    </div>
+function searchProps() {
+    const val = document.getElementById("search").value.toLowerCase().trim();
+    
+    const filtered = properties.filter(p => 
+        (currentFilter === "all" || p.type === currentFilter) &&
+        (p.location.toLowerCase().includes(val) || p.title.toLowerCase().includes(val))
+    );
+    
+    render(filtered);
+}
 
-    <script>
-        const properties = [
-            { 
-                title: "Commercial Building - Thika Road", 
-                location: "Rosters, Thika Road", 
-                price: "KES 380M", 
-                type: "commercial", 
-                image: "https://i.ibb.co/0jmqstSt/b2ccfd04-d446-4507-8ea9-4acb58160060.jpg",
-                details: "• Commercial building touching Thika Road\n• Monthly income: KES 3M\n• Asking price: KES 380 Million\n• 2 high-speed lifts\n• Backup generator\n• Basement parking\n• Rooftop access\n• Prime location: Rosters Thika"
-            },
-            { 
-                title: "Kitengela Plot", 
-                location: "Kitengela", 
-                price: "KES 12M", 
-                type: "plot", 
-                image: "https://i.ibb.co/sdHPBsVT/d02d7d53-152b-4182-b0ce-a3836f4e3c93.jpg",
-                details: "• 50*100 plot\n• Kitengela town behind National Bank\n• Mabati houses income 100K\n• Suitable for high-rise apartments\n• Selling @12 Million"
-            },
-            { 
-                title: "Rental houses for Sale ", 
-                location: "Joska -Kangundo Road", 
-                price: "KES 11M", 
-                type: "apartment", 
-                image: "https://i.ibb.co/DDvBCMwL/a5d0d9ca-ad6c-4c83-8d9e-5e6badc7efdf.jpg",
-                details: "\n10 Bedsitters and 2shops\nhas approvals up to 4th floor\nincome of ksh 80,000\nprime location for investment"
-            },
-            { 
-                title: "Kitengela prime plot", 
-                location: "Yukos Kitengela Town", 
-                price: "KES 1.6M", 
-                type: "plot", 
-                image: "https://i.ibb.co/0jbbNs48/b033d94d-e925-4ee3-88c6-154067d1ed04-1.png",
-                details: "• 50*100 plot\• n800M from Namanga Road\n• Suitable for rentals units or Air BnB units\n• Next to Leilas Bites"
-            },
-            { 
-                title: "Kitengela plot for sale", 
-                location: "Kitengela,Safaricom II Estate", 
-                price: "KES 6.2M", 
-                type: "plot 100*100", 
-                image: "https://i.ibb.co/MDV2hLRn/ffa2a8d8-b15a-4c26-8e21-59e4945bcc7a.jpg",
-                details: "• plot located in kiboko estate near Hindu Mosque\• nideal for development"
-            },
-            { 
-                title: "Kitengela plot for sale", 
-                location: "Kitengela ,safaricom II Estate", 
-                price: "KES 3.4M", 
-                type: "plot", 
-                image: "https://i.ibb.co/W4bRDtdQ/19163af9-5a6d-47c9-8e72-a7e98875ce0d.jpg",
-                details: "• 50*100 plot\n• in jodari lane opposite hindu Mosque"
-            },
-            { 
-                title: "Kitengela Plot", 
-                location: "in Kitengela Police Sacco-6th avenue ", 
-                price: "KES 3M", 
-                type: "plot", 
-                image: "https://i.ibb.co/35cvffWt/7ae9954d-14f1-46b7-bc0e-d42a709679b9.jpg",
-                details: "• 50×100 ft residential plot\n• Located in Kitengela\n• ideal for residentials home or investement/n• ready title"
-            },
-            { 
-                title: "Prime plot in Ruaka ", 
-                location: "Ruaka ,Behind level 3 Hospital, adjacent to Loftel", 
-                price: "KES 15M", 
-                type: "plot", 
-                image: "https://i.ibb.co/Q3gzf0Yy/e384a007-e97a-4a4a-9906-ec30f88127aa.jpg",
-                details: "• 1/8 of an Acre\n• ideal for residentials homes or investment \n• ready title"
-            },
-            { 
-                title: "Prime Ruiru Plot", 
-                location: "in Ruiru,infinity industrial park", 
-                price: "KES 3.5M", 
-                type: "plot", 
-                image: "https://i.ibb.co/s9dR40RD/bb95797c-6af1-4510-bc3d-be239de5d027-1.jpg",
-                details: "• 40×60\n• located in ruiru,infinity industrial park\n• suitable for developing rentals\n• Ready tiltle"
-            },
-            { 
-                title: "Flat for sale in RUIRU Plot", 
-                location: "Ruiru Matangi -kwa mundia", 
-                price: "KES 9M", 
-                type: "Apartment", 
-                image: "https://i.ibb.co/YCmJ5vX/f451b2de-aaee-4e4e-9d3c-cd0abad1ee7f.jpg",
-                details: "• monthly income 86,000ksh\n• Electricity & good accessto the road\n• water is available\n• ideal for steady rental income"
-            },
-            { 
-                title: "Prime plot in Kiukenda Estate", 
-                location: "Kiukenda Estate -Kamiti Road", 
-                price: "KES 13.6M", 
-                type: "plot", 
-                image: "https://i.ibb.co/FLStTyGg/e40891ed-951a-45c0-9711-d9fe5face9c1.jpg",
-                details: "• 100*200ft plot\n• suitable for gated commmunity residence\n• ideal investment opportunity\n• Good for residential development or small-scale farming"
-            }
-        ];
-
-        let visible = 6;
-        let current = "all";
-
-        function render() {
-            const list = document.getElementById("list");
-            list.innerHTML = "";
-            properties
-                .filter(p => current === "all" || p.type === current)
-                .slice(0, visible)
-                .forEach(p => {
-                    const safeTitle    = p.title.replace(/'/g, "\\'");
-                    const safeLocation = p.location.replace(/'/g, "\\'");
-                    const safePrice    = p.price.replace(/'/g, "\\'");
-                    const safeImage    = p.image;
-                    const safeDetails  = (p.details || "").replace(/'/g, "\\'").replace(/\n/g, "\\n");
-                    const whatsappMsg  = encodeURIComponent(`Hello Home Ground Merchants, I am interested in ${p.title} at ${p.location} for ${p.price}. Kindly share more details. Thank you.`);
-
-                    list.innerHTML += `
-                        <div class="property-card">
-                            <img src="${safeImage}" alt="${safeTitle}">
-                            <div>
-                                <h3>${p.title}</h3>
-                                <p>Location: ${p.location}</p>
-                                <p><strong>${p.price}</strong></p>
-                                <button class="details-btn" 
-                                        onclick="showDetails('${safeTitle}', '${safeLocation}', '${safePrice}', '${safeImage}', '${safeDetails}', 'https://wa.me/254724154316?text=${whatsappMsg}')">
-                                    Details
-                                </button>
-                                <a href="https://wa.me/254724154316?text=${whatsappMsg}" 
-                                   target="_blank" class="whatsapp-link">Quick Inquire</a>
-                            </div>
-                        </div>`;
-                });
-        }
-
-        function filterProps(type) {
-            current = type;
-            visible = 6;
-            render();
-        }
-
-        function loadMore() {
-            visible += 4;
-            render();
-        }
-
-        function showDetails(title, location, price, image, details, whatsappUrl) {
-            document.getElementById("modalImage").src = image;
-            document.getElementById("modalTitle").textContent = title;
-            document.getElementById("modalLocation").textContent = location;
-            document.getElementById("modalPrice").textContent = price;
-            document.getElementById("modalDetails").textContent = details || "No additional details provided.";
-            document.getElementById("modalWhatsApp").href = whatsappUrl;
-            document.getElementById("propertyModal").style.display = "block";
-        }
-
-        function closeModal() {
-            document.getElementById("propertyModal").style.display = "none";
-        }
-
-        window.onclick = function(event) {
-            const modal = document.getElementById("propertyModal");
-            if (event.target === modal) {
-                closeModal();
-            }
-        }
-
-        // Initial render
-        render();
-    </script>
+// Initial render
+render(properties);
+</script>
 </body>
 </html>
