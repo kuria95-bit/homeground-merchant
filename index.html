@@ -19,165 +19,94 @@
         line-height: 1.6;
     }
 
-    header {
-        background: var(--primary);
-        color: white;
-        padding: 16px 15px;
-        text-align: center;
-        font-size: 1.35rem;
-        font-weight: 700;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
+    header { background: var(--primary); color: white; padding: 16px 15px; text-align: center; font-size: 1.35rem; font-weight: 700; }
 
     .hero {
-        background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
-                    url('https://images.mansionglobal.com/im-446105?width=1920') center/cover no-repeat;
-        color: white;
-        text-align: center;
-        padding: 100px 15px 80px;
+        background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('https://images.mansionglobal.com/im-446105?width=1920') center/cover;
+        color: white; text-align: center; padding: 100px 15px 80px;
     }
-    .hero h1 {
-        font-family: 'Montserrat', sans-serif;
-        font-size: clamp(2rem, 7vw, 2.8rem);
-        margin-bottom: 10px;
-    }
-    .hero p {
-        font-size: 1.05rem;
-        max-width: 700px;
-        margin: 0 auto;
-    }
+    .hero h1 { font-family: 'Montserrat', sans-serif; font-size: clamp(2rem, 7vw, 2.8rem); margin-bottom: 10px; }
+    .hero p { font-size: 1.05rem; }
 
-    .search {
-        text-align: center;
-        padding: 20px 15px;
-        background: white;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-    }
+    .search { text-align: center; padding: 20px 15px; background: white; }
     .search input {
-        width: 95%;
-        max-width: 500px;
-        padding: 14px 18px;
-        border: 2px solid #ddd;
-        border-radius: 50px;
-        font-size: 1.05rem;
-        outline: none;
-    }
-    .search input:focus {
-        border-color: var(--primary);
+        width: 95%; max-width: 500px; padding: 14px 18px; border: 2px solid #ddd;
+        border-radius: 50px; font-size: 1.05rem; outline: none;
     }
 
     .filters {
-        text-align: center;
-        padding: 18px 10px;
-        background: white;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 8px;
+        text-align: center; padding: 18px 10px; background: white;
+        display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;
     }
     .filters button {
-        padding: 10px 18px;
-        border: none;
-        background: var(--primary);
-        color: white;
-        border-radius: 50px;
-        cursor: pointer;
-        font-weight: 500;
-        font-size: 0.95rem;
-        white-space: nowrap;
+        padding: 10px 18px; border: none; background: var(--primary); color: white;
+        border-radius: 50px; cursor: pointer; font-size: 0.95rem;
     }
-    .filters button.active,
-    .filters button:hover {
-        background: var(--green);
-    }
+    .filters button.active, .filters button:hover { background: var(--green); }
 
     .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 20px;
-        padding: 20px 15px;
-        max-width: 1400px;
-        margin: 0 auto;
+        display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px; padding: 20px 15px; max-width: 1400px; margin: 0 auto;
     }
 
     .card {
-        border-radius: 14px;
-        overflow: hidden;
-        background: white;
-        box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-        transition: all 0.3s ease;
+        border-radius: 14px; overflow: hidden; background: white;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.1); cursor: pointer; transition: 0.3s;
     }
-    .card:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 12px 25px rgba(0,0,0,0.15);
-    }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 12px 25px rgba(0,0,0,0.15); }
 
     .plot { border-top: 7px solid #16a34a; }
     .apartment { border-top: 7px solid #111827; }
     .commercial { border-top: 7px solid #2f3fa4; }
 
-    .card img {
-        width: 100%;
-        height: 200px;           /* Smaller image on mobile */
-        object-fit: cover;
-    }
+    .card img { width: 100%; height: 200px; object-fit: cover; }
 
-    .content {
-        padding: 16px;
-    }
-    .location {
-        font-family: 'Montserrat', sans-serif;
-        font-size: 1.15rem;
-        font-weight: 700;
-        color: #222;
-    }
-    .price {
-        font-size: 1.65rem;
-        color: var(--green);
-        font-weight: 700;
-        margin: 8px 0;
-    }
+    .content { padding: 16px; }
+    .location { font-family: 'Montserrat', sans-serif; font-size: 1.15rem; font-weight: 700; color: #222; }
+    .price { font-size: 1.65rem; color: var(--green); font-weight: 700; margin: 8px 0; }
+
     .badge {
-        position: absolute;
-        top: 12px;
-        left: 12px;
-        background: #f59e0b;
-        color: white;
-        padding: 5px 12px;
-        font-weight: bold;
-        border-radius: 6px;
-        font-size: 0.85rem;
+        position: absolute; top: 12px; left: 12px; background: #f59e0b; color: white;
+        padding: 5px 12px; font-weight: bold; border-radius: 6px; font-size: 0.85rem;
     }
 
     .btn {
-        display: inline-block;
-        margin: 8px 5px 0 0;
-        padding: 11px 16px;
-        border-radius: 8px;
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 0.95rem;
-        width: 100%;               /* Full width buttons on mobile */
-        text-align: center;
-        margin-bottom: 6px;
+        display: block; width: 100%; padding: 12px; margin: 8px 0;
+        border-radius: 8px; text-decoration: none; font-weight: 600; text-align: center;
     }
     .whatsapp { background: #25d366; color: white; }
     .call { background: var(--primary); color: white; }
-
-    footer {
-        background: var(--primary);
-        color: white;
-        text-align: center;
-        padding: 25px 15px;
+    .more-details { 
+        background: #f59e0b; 
+        color: white; 
+        font-weight: 700; 
         font-size: 1.05rem;
     }
-    .contact-info {
-        margin-top: 8px;
-        font-size: 1.25rem;
-        font-weight: bold;
+
+    /* ==================== MODAL (POPUP) ==================== */
+    .modal {
+        display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0,0,0,0.8); z-index: 1000; align-items: center; justify-content: center;
+        padding: 15px;
+    }
+    .modal-content {
+        background: white; max-width: 500px; width: 100%; border-radius: 16px;
+        overflow: hidden; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    .modal-img { width: 100%; height: 260px; object-fit: cover; }
+    .modal-body { padding: 20px; }
+    .modal-title { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; margin-bottom: 8px; }
+    .modal-location { font-size: 1.1rem; color: #555; margin-bottom: 10px; }
+    .modal-price { font-size: 2rem; color: var(--green); font-weight: 700; margin: 10px 0; }
+    .modal-details { font-size: 1.05rem; line-height: 1.7; color: #333; margin: 15px 0; }
+
+    .close-btn {
+        position: absolute; top: 12px; right: 12px; background: rgba(0,0,0,0.6);
+        color: white; width: 35px; height: 35px; border-radius: 50%; display: flex;
+        align-items: center; justify-content: center; font-size: 1.6rem; cursor: pointer;
+        z-index: 10;
     }
 
-    /* Extra spacing for small phones */
     @media (max-width: 380px) {
         .grid { gap: 18px; padding: 15px 10px; }
         .card img { height: 180px; }
@@ -194,7 +123,7 @@
 </section>
 
 <div class="search">
-    <input type="text" id="search" placeholder="🔍 Search by location (e.g. Ruaka, Joska...)" onkeyup="searchProps()">
+    <input type="text" id="search" placeholder="🔍 Search by location..." onkeyup="searchProps()">
 </div>
 
 <div class="filters">
@@ -211,8 +140,24 @@
     <a href="https://wa.me/254724154316" target="_blank" style="color:#25d366; text-decoration:none;">
         💬 WhatsApp Us for Instant Deals
     </a>
-    <div class="contact-info">Homeground Merchants KE</div>
 </footer>
+
+<!-- MODAL -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <div class="close-btn" onclick="closeModal()">×</div>
+        <img id="modal-image" class="modal-img" src="" alt="">
+        <div class="modal-body">
+            <div id="modal-title" class="modal-title"></div>
+            <div id="modal-location" class="modal-location"></div>
+            <div id="modal-price" class="modal-price"></div>
+            <div id="modal-details" class="modal-details"></div>
+
+            <a id="modal-whatsapp" class="btn whatsapp" href="#" target="_blank">💬 WhatsApp</a>
+            <a id="modal-call" class="btn call" href="tel:+254724154316">📞 Call Now</a>
+        </div>
+    </div>
+</div>
 
 <script>
 const properties = [
@@ -223,7 +168,7 @@ const properties = [
         type: "plot",
         image: "https://i.ibb.co/Q3gzf0Yy/e384a007.jpg",
         featured: true,
-        details: "Ideal for rentals or Airbnb"
+        details: "Ideal for rentals or Airbnb. Ready title, water and electricity available. Perfect for immediate development."
     },
     {
         title: "Rental Apartment",
@@ -231,7 +176,7 @@ const properties = [
         price: "KES 11M",
         type: "apartment",
         image: "https://i.ibb.co/DDvBCMwL/a5d0d9ca.jpg",
-        details: "Income KES 80,000 per month"
+        details: "Income KES 80,000 per month. 4 units fully occupied. Very good return on investment."
     },
     {
         title: "Commercial Building",
@@ -239,7 +184,7 @@ const properties = [
         price: "KES 380M",
         type: "commercial",
         image: "https://i.ibb.co/0jmqstSt/b2ccfd04.jpg",
-        details: "Income KES 3M monthly"
+        details: "Income KES 3M monthly. Prime location with high foot traffic. Excellent for long-term investment."
     }
 ];
 
@@ -249,27 +194,50 @@ function render(list) {
     const grid = document.getElementById("grid");
     grid.innerHTML = "";
 
-    list.forEach(p => {
-        const whatsappMsg = encodeURIComponent(
-            `Hello Homeground Merchants,\n\nI'm interested in:\n\n📌 ${p.title}\n📍 ${p.location}\n💰 ${p.price}\n\nKindly share more details.`
-        );
+    list.forEach((p, index) => {
+        const whatsappMsg = encodeURIComponent(`Hello Homeground Merchants,\n\nI'm interested in:\n📌 ${p.title}\n📍 ${p.location}\n💰 ${p.price}\n\nKindly share more details.`);
 
         grid.innerHTML += `
-        <div class="card ${p.type}">
+        <div class="card ${p.type}" onclick="showModal(${index})">
             ${p.featured ? `<div class="badge">🔥 HOT DEAL</div>` : ""}
             <img src="${p.image}" alt="${p.title}">
             <div class="content">
                 <div class="location">${p.location}</div>
                 <div class="price">${p.price}</div>
                 <p>${p.details}</p>
-                ${p.details.toLowerCase().includes("income") ? `<p style="color:#16a34a;font-weight:bold;margin-top:8px;">💸 Income Generating</p>` : ""}
                 
-                <a class="btn whatsapp" href="https://wa.me/254724154316?text=${whatsappMsg}" target="_blank">💬 WhatsApp</a>
-                <a class="btn call" href="tel:+254724154316">📞 Call Now</a>
+                <a class="btn more-details" onclick="event.stopImmediatePropagation(); showModal(${index})">
+                    More Details & Contact
+                </a>
+                <a class="btn whatsapp" href="https://wa.me/254724154316?text=${whatsappMsg}" target="_blank" onclick="event.stopImmediatePropagation()">💬 WhatsApp</a>
+                <a class="btn call" href="tel:+254724154316" onclick="event.stopImmediatePropagation()">📞 Call Now</a>
             </div>
         </div>`;
     });
 }
+
+function showModal(index) {
+    const p = properties[index];
+    const whatsappMsg = encodeURIComponent(`Hello Homeground Merchants,\n\nI'm interested in:\n📌 ${p.title}\n📍 ${p.location}\n💰 ${p.price}\n\nKindly share more details.`);
+
+    document.getElementById("modal-image").src = p.image;
+    document.getElementById("modal-title").textContent = p.title;
+    document.getElementById("modal-location").textContent = p.location;
+    document.getElementById("modal-price").textContent = p.price;
+    document.getElementById("modal-details").innerHTML = p.details.replace(/\n/g, '<br>');
+
+    document.getElementById("modal-whatsapp").href = `https://wa.me/254724154316?text=${whatsappMsg}`;
+
+    document.getElementById("modal").style.display = "flex";
+}
+
+function closeModal() {
+    document.getElementById("modal").style.display = "none";
+}
+
+document.getElementById("modal").addEventListener("click", function(e) {
+    if (e.target.id === "modal") closeModal();
+});
 
 function filter(type) {
     currentFilter = type;
